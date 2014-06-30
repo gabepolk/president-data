@@ -33,5 +33,5 @@ ruby_debug.c: At top level:
 linking shared-object ruby_debug.so
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 ruby_debug.so ./.gem.20140629-29538-1oz7dgd
+/usr/bin/install -c -m 0755 ruby_debug.so ./.gem.20140629-2980-j0nzta
 installing default ruby_debug libraries
