@@ -39,22 +39,23 @@ Dir.glob("../scraper/output/*.txt") do |filename|
 
   # count unique words
   unique_words_count = result.uniq.count
-  p unique_words_count
+  # p unique_words_count
 
   # count total words
   total_word_count = result.count
-  p total_word_count
+  # p total_word_count
 
   # add stats to hash
   if stats[president] == 0
-    stats[president] = {total_unique_words: unique_words_count, date: date}
+    stats[president] = {total_unique_words: unique_words_count, total_word_count: total_word_count, date: date}
   else
     stats[president][:total_unique_words] = stats[president][:total_unique_words] += unique_words_count
+    stats[president][:total_word_count] = stats[president][:total_word_count] += total_word_count
   end
 
 end
 
 # write output to file
 File.open("output/stats.txt", "w") do |f|
-  f.write("Unique Words: #{stats}")
+  f.write("#{stats}")
 end
