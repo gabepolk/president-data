@@ -1,5 +1,7 @@
 require 'pry-debugger'
 require 'time'
+require 'json'
+require 'lingua'
 
 # create hash to store stats
 stats = Hash.new(0)
@@ -7,7 +9,7 @@ stats = Hash.new(0)
 # loop through speeches
 Dir.glob("../scraper/output/*.txt") do |filename|
 
-  # create file object named file
+  # create file object
   file = File.new(filename).read
 
   # parse metadata
@@ -16,7 +18,7 @@ Dir.glob("../scraper/output/*.txt") do |filename|
   date = Time.parse(file[/(?<={date}).*(?={\/date})/].strip)
   # transcript = [/(?<={speech}).*(?={\/speech})/].strip
 
-  # remove metadata from file
+  # remove metadata from speech
   file_without_metadata = file.gsub(/({title}).*({\/title})/, "").gsub(/({speaker}).*({\/speaker})/, "").gsub(/({date}).*({\/date})/, "").gsub(/({speech})/, "").gsub(/({\/speech})/, "")
 
   # create array of words from speech
@@ -31,31 +33,45 @@ Dir.glob("../scraper/output/*.txt") do |filename|
   speech_arr.each { |w| result << w unless ignore_me[w.downcase[/\w*/]] }
   result.join(" ")
 
-  # create hash of words sorted by frequency
+  # sort words by frequency
   word_frequency = Hash.new(0)
   result.each { |word| word_frequency[word] += 1 }
   sorted_arr = word_frequency.sort_by {|key, value| value}.reverse
-  # p sorted_arr
 
   # count unique words
   unique_words_count = result.uniq.count
-  # p unique_words_count
 
   # count total words
-  total_word_count = result.count
-  # p total_word_count
+  word_count = result.count
+
+  # count total sentences
+  sentence_count = file_without_metadata.split(/\.|\?|!/).count
+
+  # count syllables
+  syllable_count = result.inject(0) do |count, word|
+    report = Lingua::EN::Readability.new(word)
+    count += report.num_syllables
+  end
 
   # add stats to hash
   if stats[president] == 0
-    stats[president] = {total_unique_words: unique_words_count, total_word_count: total_word_count, date: date}
+    stats[president] = {
+      total_unique_words: unique_words_count,
+      total_word_count: word_count,
+      total_sentence_count: sentence_count,
+      total_syllable_count: syllable_count,
+      date: date
+    }
   else
     stats[president][:total_unique_words] = stats[president][:total_unique_words] += unique_words_count
-    stats[president][:total_word_count] = stats[president][:total_word_count] += total_word_count
+    stats[president][:total_word_count] = stats[president][:total_word_count] += word_count
+    stats[president][:total_sentence_count] = stats[president][:total_sentence_count] += sentence_count
+    stats[president][:total_syllable_count] = stats[president][:total_syllable_count] += syllable_count
   end
 
 end
 
-# write output to file
+# write output to stats.txt
 File.open("output/stats.txt", "w") do |f|
-  f.write("#{stats}")
+  f.write("#{stats.to_json}")
 end
