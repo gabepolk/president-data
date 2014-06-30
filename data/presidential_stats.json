@@ -1,0 +1,26 @@
+{
+  "Barack Obama": {
+    "total unique words": 15000,
+    "total words used": 100000,
+    "political party": "democrat",
+    "year inauguration": 2009,
+    "wordfrequencyusage": {
+      "god": 100,
+      "economy": 500,
+      "tax": 100,
+      "war": 25
+    },
+    "favorite words": ["a","b","c","d","e","f","g"]
+  },
+  "George W Bush": {
+    "total unique words": 5000,
+    "total words used": 80000,
+    "political party": "republican",
+    "year inauguration": 2001,},
+  "Bill Clinton": {
+    "total unique words": 22000,
+    "total words used": 250000,
+    "political party": "democrat",
+    "year inauguration": 1993,
+  }
+}
