@@ -4,6 +4,11 @@ require 'pry-debugger'
 
 file = File.open("../scraper/output/abraham_lincoln481.txt")
 
+# (?<={title}).*(?={\/title})
+# (?<={speaker}).*(?={\/speaker})
+# (?<={date}).*(?={\/date})
+# (?<={speech}).*(?={\/speech})
+
 # create array of words from speech
 speech_arr = file.read.gsub(/[^\w\s]/, "").split(" ")
 
@@ -20,5 +25,10 @@ result.join(" ")
 word_frequency = Hash.new(0)
 result.each { |word| word_frequency[word] += 1 }
 sorted_arr = word_frequency.sort_by {|key, value| value}.reverse
-
+binding.pry
 puts sorted_arr
+
+# count unique words
+unique_words_count = result.uniq.count
+
+puts unique_words_count
