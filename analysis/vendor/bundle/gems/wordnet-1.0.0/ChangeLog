@@ -1,0 +1,829 @@
+2012-05-28  Michael Granger  <ged@FaerieMUD.org>
+
+	* .pryrc, .rvm.gems, Manifest.txt, Rakefile, lib/wordnet.rb,
+	lib/wordnet/lexicon.rb, lib/wordnet/mixins.rb, lib/wordnet/model.rb,
+	lib/wordnet/morph.rb, lib/wordnet/sense.rb, lib/wordnet/synset.rb,
+	lib/wordnet/word.rb, spec/lib/helpers.rb, spec/wordnet_spec.rb:
+	Replace logging with Loggability.
+	[e671163eae2a] [tip]
+
+2012-05-01  Michael Granger  <ged@FaerieMUD.org>
+
+	* lib/wordnet/synset.rb, spec/wordnet/synset_spec.rb:
+	Fix the linktype_table on databases other than Sequel.
+	[3647dfa1c677]
+
+2012-04-30  Michael Granger  <ged@FaerieMUD.org>
+
+	* lib/wordnet/lexicon.rb, lib/wordnet/synset.rb,
+	spec/wordnet/lexicon_spec.rb, wordnet-defaultdb/Rakefile:
+	Some final fixups before first release
+	[bb1dccbd6b4e]
+
+	* wordnet-defaultdb/.rvm.gems, wordnet-defaultdb/.rvmrc:
+	Add an rvmrc for the defaultdb build directory, too
+	[01770ef4dcd2]
+
+	* lib/wordnet.rb, lib/wordnet/constants.rb, lib/wordnet/lexicon.rb,
+	lib/wordnet/mixins.rb, lib/wordnet/model.rb, lib/wordnet/synset.rb,
+	lib/wordnet/word.rb, spec/linguawordnet.tests.rb, wordnet-
+	defaultdb/Rakefile, wordnet-defaultdb/lib/wordnet-defaultdb.rb:
+	Trailing whitespace cleanup
+	[1188ab2f44d3]
+
+	* .rvm.gems:
+	Bumping hoe-deveiate rvm gems version
+	[d91f0b020d78]
+
+2012-04-16  Michael Granger  <ged@FaerieMUD.org>
+
+	* spec/lib/helpers.rb, spec/wordnet/lexicon_spec.rb:
+	Update specs to latest RSpec style
+	[69996dfbe9cc]
+
+2012-03-07  Michael Granger  <ged@FaerieMUD.org>
+
+	* .rvmrc:
+	Remove patchlevel from the rvmrc version.
+	[3fec64ebe125]
+
+2012-01-30  Michael Granger  <ged@FaerieMUD.org>
+
+	* .rvm.gems, .rvmrc, History.rdoc, lib/wordnet.rb, wordnet-
+	defaultdb/Rakefile:
+	Update for pending 1.0 release.
+	- Added rvm gemset and gem export.
+	- Bumped the version to 1.0.0.
+	- Updated dependencies
+	[a85e1af07609]
+
+	* .hoerc, Manifest.txt, examples/TEMPLATE.rb.tpl:
+	Updating the manifest, adding project-local hoerc with the right
+	ignores
+	[c4e54e41c55e]
+
+	* redist/bdb-0.6.5.tar.gz:
+	Removing unused bdb tarball from redist/
+	[411df422f077]
+
+2011-11-16  Michael Granger  <ged@FaerieMUD.org>
+
+	* lib/wordnet/lexicon.rb, lib/wordnet/word.rb, spec/lib/helpers.rb,
+	spec/wordnet/lexicon_spec.rb, spec/wordnet/synset_spec.rb,
+	spec/wordnet/word_spec.rb:
+	Finishing up the minimal parts of the API
+	[848e47815ee8]
+
+2011-11-09  Michael Granger  <ged@FaerieMUD.org>
+
+	* .pryrc, .rvmrc, README-defaultdb.rdoc, README.rdoc, Rakefile,
+	examples/add-laced-boots.rb, examples/addLacedBoots.rb, examples
+	/clothes-with-collars.rb, examples/clothesWithCollars.rb,
+	examples/clothesWithTongues.rb, examples/domainTree.rb,
+	examples/memberTree.rb, lib/wordnet.rb, lib/wordnet/constants.rb,
+	lib/wordnet/lexicallink.rb, lib/wordnet/lexicon.rb,
+	lib/wordnet/model.rb, lib/wordnet/semanticlink.rb,
+	lib/wordnet/sense.rb, lib/wordnet/sumoterm.rb,
+	lib/wordnet/synset.rb, lib/wordnet/word.rb, spec/lib/helpers.rb,
+	spec/wordnet/lexicon_spec.rb, spec/wordnet/model_spec.rb,
+	spec/wordnet/synset_spec.rb, wordnet-defaultdb/Manifest.txt,
+	wordnet-defaultdb/Rakefile:
+	More work on transition functions/backward-compatibility
+	[f46576f69041]
+
+2011-10-26  Michael Granger  <ged@FaerieMUD.org>
+
+	* History.md, History.rdoc, Manifest.txt, README-defaultdb.md, README-
+	defaultdb.rdoc, README.md, README.rdoc, Rakefile, wordnet-
+	defaultdb/History.md, wordnet-defaultdb/History.rdoc, wordnet-
+	defaultdb/README.md, wordnet-defaultdb/README.rdoc, wordnet-
+	defaultdb/Rakefile, wordnet-defaultdb/lib/wordnet-defaultdb.rb:
+	Finished packaging cleanup.
+	[b1514e70b8cd]
+
+2011-09-01  Michael Granger  <ged@FaerieMUD.org>
+
+	* ChangeLog, INSTALL, README, Rakefile.local, convertdb.rb,
+	lib/wordnet/synset_pointer.rb, project.yml,
+	spec/wordnet/synset_pointer_spec.rb, utils.rb:
+	Merged rewrite branch
+	[576f8ac414ed]
+
+	* Closing sequel-conversion branch in preparation for merging to
+	default
+	[5887d4637096] <sequel-conversion>
+
+2011-08-17  Michael Granger  <ged@FaerieMUD.org>
+
+	* lib/wordnet/lexicon.rb, lib/wordnet/synset.rb:
+	Add initial implementation of WordNet::Synset#traverse, API docs
+	cleanup.
+	[71ff4fbd95ea] <sequel-conversion>
+
+2011-07-29  Michael Granger  <ged@FaerieMUD.org>
+
+	* spec/wordnet/model_spec.rb:
+	Add missing model_spec
+	[1a7a2979d5c7] <sequel-conversion>
+
+	* examples/clothesWithCollars.rb:
+	Find example synsets by definition in the collars example
+	[a571dd0df5df] <sequel-conversion>
+
+2011-07-25  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgignore, .irbrc, Rakefile, examples/clothesWithCollars.rb,
+	lib/wordnet.rb, lib/wordnet/lexicallink.rb, lib/wordnet/lexicon.rb,
+	lib/wordnet/morph.rb, lib/wordnet/semanticlink.rb,
+	lib/wordnet/sense.rb, lib/wordnet/sumoterm.rb,
+	lib/wordnet/synset.rb, lib/wordnet/synset_pointer.rb,
+	lib/wordnet/word.rb, spec/wordnet/semanticlink_spec.rb,
+	spec/wordnet/synset_pointer_spec.rb, spec/wordnet/synset_spec.rb,
+	spec/wordnet/word_spec.rb, wordnet-defaultdb/Rakefile:
+	Got synsets basically working
+	[628e442e6d18] <sequel-conversion>
+
+2011-07-14  Michael Granger  <ged@FaerieMUD.org>
+
+	* lib/wordnet/lexicon.rb, lib/wordnet/model.rb, spec/lib/helpers.rb,
+	spec/wordnet/lexicon_spec.rb, spec/wordnet/word_spec.rb:
+	Checkpoint commit
+	- Switch from deprecated Rubygems methods to Gem::Specification ones.
+	- Add beginnings of WordNet::Word specs
+	[3503d73f905e] <sequel-conversion>
+
+	* Rakefile, lib/wordnet/constants.rb, lib/wordnet/lexicon.rb,
+	spec/lib/helpers.rb, spec/wordnet/lexicon_spec.rb,
+	spec/wordnet/synset_pointer_spec.rb, spec/wordnet/synset_spec.rb,
+	spec/wordnet_spec.rb:
+	Cleanup, remove old cruft, integrated some lessons learned from
+	LAIKA's Sequel model.
+	[2588d5fbf4d2] <sequel-conversion>
+
+	* wordnet-defaultdb/History.md, wordnet-defaultdb/Manifest.txt,
+	wordnet-defaultdb/README.md, wordnet-defaultdb/Rakefile, wordnet-
+	defaultdb/lib/wordnet-defaultdb.rb:
+	Adding a build dir for the default DB gem
+	[59bef07a2f66] <sequel-conversion>
+
+	* .hgignore, .irbrc, Rakefile, lib/wordnet.rb,
+	lib/wordnet/constants.rb, lib/wordnet/lexicon.rb,
+	lib/wordnet/model.rb, lib/wordnet/sense.rb, lib/wordnet/synset.rb,
+	lib/wordnet/synset_pointer.rb, lib/wordnet/word.rb,
+	spec/wordnet/lexicon_spec.rb:
+	Snapshot commit of changes after applying lessons learned at LAIKA
+	[8883e952a0de] <sequel-conversion>
+
+2011-04-26  Michael Granger  <ged@FaerieMUD.org>
+
+	* README.md, lib/wordnet/lexicon.rb:
+	Checkpoint commit
+	[5cc10fe2b0bd] <sequel-conversion>
+
+2011-01-11  Michael Granger  <ged@FaerieMUD.org>
+
+	* ChangeLog, History.md, README.md, doc/uml-wordnet.svg, doc/uml-
+	wordnet_files/background.bmp, lib/wordnet/lexicon.rb,
+	lib/wordnet/mixins.rb, lib/wordnet/model.rb, lib/wordnet/sense.rb,
+	lib/wordnet/synset.rb, lib/wordnet/synset_pointer.rb,
+	lib/wordnet/utils.rb, lib/wordnet/word.rb, uml-wordnet.svg:
+	Started updating the README, fixed circular requires for 1.9.x.
+	[adcd5f9de42e] <sequel-conversion>
+
+	* .irbrc, Rakefile, doc/uml-wordnet.svg, doc/uml-
+	wordnet_files/background.bmp, lib/wordnet.rb,
+	lib/wordnet/lexicon.rb, lib/wordnet/mixins.rb, lib/wordnet/model.rb,
+	lib/wordnet/sense.rb, lib/wordnet/synset.rb,
+	lib/wordnet/synset_pointer.rb, lib/wordnet/word.rb,
+	spec/wordnet/synset_spec.rb:
+	Converted to Hoe, started conversion to WordNet-SQL.
+	[3c2825965c32] <sequel-conversion>
+
+2010-12-27  Michael Granger  <ged@FaerieMUD.org>
+
+	* .hgignore, .hgsub, .hgsubstate, .hgsubstate, .irbrc, INSTALL,
+	LICENSE, Manifest-data.txt, Manifest.txt, README-defaultdb.md,
+	Rakefile, Rakefile.local, WordNet30-license.txt, convertdb.rb,
+	lib/wordnet.rb, lib/wordnet/constants.rb, lib/wordnet/lexicon.rb,
+	lib/wordnet/mixins.rb, lib/wordnet/synset.rb, lib/wordnet/utils.rb,
+	lib/wordnet/word.rb, project.yml, spec/lib/helpers.rb,
+	spec/wordnet/lexicon_spec.rb, spec/wordnet_spec.rb, utils.rb:
+	Checkpoint commit of a failed experiment to see if I could define
+	Sequel::Models at runtime.
+	[b3d817089c6a] <sequel-conversion>
+
+2010-10-18  Michael Granger  <ged@FaerieMUD.org>
+
+	* README, README.md:
+	rename README -> README.md
+	[c5ed3e1e16ed] <sequel-conversion>
+
+	* .hgignore, .hgsub, .hgsubstate, LICENSE, README, Rakefile,
+	project.yml, spec/wordnet/lexicon_spec.rb:
+	Starting update for Ruby 1.9.2/RSpec 2.0
+	[c69a336b1bbf] <sequel-conversion>
+
+	* Merged updates from the default branch
+	[40ea41c4529b] <sequel-conversion>
+
+	* Closing svn2hg artifact branch
+	[1a6f06f8de6f] <FAERIEMUD_ORG>
+
+2009-08-16  Michael Granger  <ged@FaerieMUD.org>
+
+	* LICENSE, README, Rakefile, project.yml:
+	Updated build system
+	[2b7d5b227f31]
+
+2009-08-16  convert-repo  <convert-repo>
+
+	* .hgtags:
+	update tags
+	[a88db9dcb1e9]
+
+2009-03-11  Michael Granger  <ged@FaerieMUD.org>
+
+	* Branching for work on conversion to use a Sequel backend
+	[23588c5bc5a8] <sequel-conversion>
+
+2008-09-25  Michael Granger  <ged@FaerieMUD.org>
+
+	* Rakefile.local, convertdb.rb, utils.rb:
+	Made the db converter look in more paths for the WordNet dict files.
+	[5aac4933ca5a]
+
+2008-09-23  Michael Granger  <ged@FaerieMUD.org>
+
+	* ChangeLog, LICENSE, MANIFEST, README, Rakefile, Rakefile.local,
+	convertdb.rb, docs/CATALOG, docs/makedocs.rb, lib/wordnet.rb,
+	lib/wordnet/constants.rb, lib/wordnet/lexicon.rb,
+	lib/wordnet/synset.rb, lib/wordnet/synset_pointer.rb, makedist.rb,
+	project.yml, rake/helpers.rb, rake/svn.rb, rake/verifytask.rb,
+	spec/wordnet/lexicon_spec.rb, spec/wordnet/synset.tests.rb,
+	spec/wordnet/synset_pointer_spec.rb, spec/wordnet/synset_spec.rb,
+	utils.rb:
+	Merging new build system from the [log:branches/rakefile-work@88:101
+	rakefile-work branch].
+	[42685f0d367e]
+
+2008-09-22  Michael Granger  <ged@FaerieMUD.org>
+
+	* Rakefile, Rakefile.local, docs/CATALOG, docs/makedocs.rb,
+	lib/wordnet.rb, lib/wordnet/constants.rb, lib/wordnet/lexicon.rb,
+	lib/wordnet/synset.rb, lib/wordnet/synset_pointer.rb,
+	spec/wordnet/synset_pointer_spec.rb, spec/wordnet/synset_spec.rb:
+	* Broke synset pointers out into a separate file
+	 * Updated build system to work around a Rubygems 1.2.0 bug.
+	 * Finished synset test::unit -> rspec conversion
+	[ea0d701edd96] <rakefile-work>
+
+2008-09-06  Michael Granger  <ged@FaerieMUD.org>
+
+	* Rakefile:
+	Fixing the Rubyforge constants.
+	[74ae9720a2cf] <rakefile-work>
+
+2008-09-05  Michael Granger  <ged@FaerieMUD.org>
+
+	* Rakefile, project.yml:
+	Updated build system.
+	[882a15985913] <rakefile-work>
+
+	* ChangeLog, README, Rakefile, lib/wordnet/lexicon.rb, project.yml:
+	* Fixing the publication constants in the Rakefile
+	 * Fixed typo in the RDoc for WordNet::Lexicon#lookup_synsets. Fixes
+	#5.
+	[cae48de219de] <rakefile-work>
+
+	* LICENSE, README, Rakefile, Rakefile.local, project.yml:
+	* Updated build system and license
+	[b3cdb0ad0ff3] <rakefile-work>
+
+2008-07-25  Michael Granger  <ged@FaerieMUD.org>
+
+	* Rakefile, Rakefile.local, convertdb.rb, project.yml, utils.rb:
+	Updated build system
+	[3caa18754ff1] <rakefile-work>
+
+2008-07-12  Michael Granger  <ged@FaerieMUD.org>
+
+	* Rakefile, lib/wordnet/lexicon.rb, spec/wordnet/lexicon_spec.rb,
+	spec/wordnet/synset.tests.rb, spec/wordnet/synset_spec.rb:
+	* Synched Rakefile with rake-tasklibs
+	 * Started conversion of synset tests to specs
+	 * Finished converting lexicon tests to specs
+	[d957ef3d9f1e] <rakefile-work>
+
+2008-07-10  Michael Granger  <ged@FaerieMUD.org>
+
+	* MANIFEST, Rakefile, convertdb.rb, makedist.rb:
+	* Fixed the test for an existing data directory in the conversion
+	script
+	 * Set coverage minimum to 83% until I can get more tests written
+	 * Removed some more old files
+	[faf85b52afb3] <rakefile-work>
+
+2008-07-09  Michael Granger  <ged@FaerieMUD.org>
+
+	* LICENSE, Rakefile.local, project.yml:
+	Adding some files I forgot to commit.
+	[4f0448f5feaa] <rakefile-work>
+
+	* Rakefile, convertdb.rb, lib/wordnet.rb, lib/wordnet/constants.rb,
+	lib/wordnet/synset.rb:
+	Checkpoint -- conversion of database files and basic rake
+	infrastructure from rake-tasklibs external working.
+	[c15fe6cbc58f] <rakefile-work>
+
+	* rake/helpers.rb, rake/svn.rb, rake/verifytask.rb:
+	Trying out the new rake tasklibs as an external
+	[14b0575b35f2] <rakefile-work>
+
+	* Branching for work on the rakefile build system
+	[f20f1a75e118] <rakefile-work>
+
+2008-07-08  Michael Granger  <ged@FaerieMUD.org>
+
+	* Rakefile, convertdb.rb, install.rb, makedist.rb, rake/svn.rb,
+	redist/bdb-0.5.9.tar.bz2, redist/bdb-0.6.5.tar.gz,
+	spec/linguawordnet.tests.rb, spec/wordnet/synset.tests.rb, test.rb,
+	tests/lexicon.tests.rb, tests/linguawordnet.tests.rb,
+	tests/synset.tests.rb, tests/wntestcase.rb:
+	Checkpoint commit:
+	 * started work on integrating dict conversion into the Rakefile. Not
+	quite done yet.
+	 * removed the coverage check from the svn:ci task until I get all the
+	specs converted.
+	 * started cleaning up the distribution
+	 * updated the included bdb library to the latest release
+	 * added support for conversion of the dict files directly from a
+	WordNet-x.x.tar.bz2 tarball extracted in the top-level directory
+	[0db046300a4a]
+
+	* .irbrc, Rakefile, WordNet Project.tmproj, convertdb.rb,
+	lib/wordnet.rb, lib/wordnet/constants.rb, lib/wordnet/lexicon.rb,
+	lib/wordnet/synset.rb, rake/helpers.rb, rake/svn.rb,
+	rake/verifytask.rb, spec/lib/helpers.rb,
+	spec/wordnet/lexicon_spec.rb:
+	Checkpoint commit
+	[d52c4465d5ca]
+
+	* WordNet Project.tmproj, convertdb.rb, install.rb,
+	lib/wordnet/constants.rb, lib/wordnet/synset.rb, test.rb, utils.rb:
+	Checkpoint commit
+	[204bd606a829]
+
+2007-07-24  Michael Granger  <ged@FaerieMUD.org>
+
+	* INSTALL, README, WordNet Project.tmproj:
+	Doc updates
+	[1b6de9a3395d] [RELEASE_0_0_4]
+
+2007-06-18  Michael Granger  <ged@FaerieMUD.org>
+
+	* WordNet Project.tmproj, docs/CATALOG, lib/wordnet/synset.rb:
+	Cosmetic fixes
+	[328317544cd6]
+
+2007-06-17  Michael Granger  <ged@FaerieMUD.org>
+
+	* Updating project version for release
+	[cddaca3a6179]
+
+	* WordNet Project.tmproj, tests/wntestcase.rb:
+	* Fixed mimetype for the project file
+	 * Eliminated unused Test::Unit::Mock from the testcase class
+	[f5e00bdd4263]
+
+2007-02-20  Michael Granger  <ged@FaerieMUD.org>
+
+	* MANIFEST, convertdb.rb, docs/CATALOG, examples/addLacedBoots.rb,
+	examples/clothesWithCollars.rb, examples/clothesWithTongues.rb,
+	examples/distance.rb, examples/domainTree.rb, examples/gcs.rb,
+	examples/holonymTree.rb, examples/hypernymTree.rb,
+	examples/hyponymTree.rb, examples/memberTree.rb,
+	examples/meronymTree.rb, lib/wordnet.rb, lib/wordnet/constants.rb,
+	lib/wordnet/lexicon.rb, lib/wordnet/synset.rb,
+	tests/lexicon.tests.rb, tests/linguawordnet.tests.rb,
+	tests/synset.tests.rb, tests/wntestcase.rb:
+	source:trunk/convertdb.rb source:trunk/tests/wntestcase.rb
+	source:trunk/tests/linguawordnet.tests.rb
+	source:trunk/tests/synset.tests.rb
+	source:trunk/lib/wordnet/synset.rb
+	source:trunk/lib/wordnet/constants.rb source:trunk/lib/wordnet.rb
+	source:trunk/examples/clothesWithCollars.rb
+	source:trunk/examples/clothesWithTongues.rb
+	source:trunk/examples/hyponymTree.rb
+	source:trunk/examples/holonymTree.rb
+	source:trunk/examples/meronymTree.rb
+	source:trunk/examples/domainTree.rb
+	source:trunk/examples/memberTree.rb
+	source:trunk/examples/addLacedBoots.rb
+	source:trunk/examples/distance.rb
+	source:trunk/examples/hypernymTree.rb source:trunk/examples/gcs.rb
+	 * camelCase to under_barred conversions
+
+	source:trunk/tests/lexicon.tests.rb
+	source:trunk/lib/wordnet/lexicon.rb
+	 * Fix for readonly mode
+
+	source:trunk/MANIFEST
+	 * Include examples
+	[9d35129b8088]
+
+2006-10-08  Michael Granger  <ged@FaerieMUD.org>
+
+	* redist/bdb-0.5.9.tar.bz2:
+	* Added supported version of the bdb library to redist/
+	[5783f61ef564] [SNAPSHOT_20061008]
+
+	* WordNet Project.tmproj, WordNet.tmproj, lib/wordnet/lexicon.rb,
+	tests/lexicon.tests.rb:
+	* Fixed permissions/options in read-only mode.
+	[6dbc4643e7ab]
+
+2006-06-30  Michael Granger  <ged@FaerieMUD.org>
+
+	* install.rb:
+	Make install.rb executable
+	[f9f2ed9c8639]
+
+2005-12-09  Michael Granger  <ged@FaerieMUD.org>
+
+	* utils.rb:
+	- Synched utils.rb with updated one from project-utils.
+	[a1825be41418]
+
+	* - svn:ignore additions.
+	[37ed6857f091] [SNAPSHOT_20051208]
+
+	* WordNet.tmproj:
+	- Adding Textmate project file.
+	[2f213678085f]
+
+	* .irbrc:
+	- Load the default lexicon into a global.
+	[48c77408bb93]
+
+	* examples/TEMPLATE.rb.tpl:
+	Initial checkin.
+	[f53f71794f11]
+
+	* lib/wordnet/synset.rb:
+	- Only alias if CrossCase hasn't done it already.
+	[49a7edccea59]
+
+	* examples/clothesWithCollars.rb:
+	- Playing, mostly.
+	[bec18a4bc968]
+
+2005-12-08  Michael Granger  <ged@FaerieMUD.org>
+
+	* convertdb.rb, lib/wordnet/constants.rb, lib/wordnet/lexicon.rb,
+	lib/wordnet/synset.rb, tests/lexicon.tests.rb,
+	tests/linguawordnet.tests.rb, tests/synset.tests.rb,
+	tests/wntestcase.rb:
+	- Test and fix for new compound pointer types (fixes #3)
+	- Added mode-specification and path specification to Lexicon
+	constructor. This is to support modifying WordNet databases as
+	well as being able to open them read-only. This addresses the
+	"writable data files" bug (fixes #2).
+	- Moved default location for data files to CONFIG['datadir']
+	- Added quite a bit more documentation which is visible if you use the
+	included docs/makedocs.rb script or manually specify an
+	'accessors' option to rdoc.
+	[1d8f1f4a99ad]
+
+	* install.rb, utils.rb:
+	- Synced utility scripts with project-utils.
+	[2d08581a51f7]
+
+2005-11-12  Michael Granger  <ged@FaerieMUD.org>
+
+	* experiments/unhandled_pointer_types.rb:
+	* Adding minimal testcase for missing synset pointer types bug.
+	(refs #3)
+	[ab0c9c133d27]
+
+	* lib/wordnet/synset.rb:
+	* Made def_pointer_methods a bit more intelligent so that the second
+	argument isn't necessary.
+	 * Added example values to some attributes
+	[811fa09afcc0]
+
+	* install.rb, makedist.rb:
+	* Propagated updates from project-utils.
+	[7091722df01e]
+
+	* docs/CATALOG, docs/makedocs.rb, utils.rb:
+	* Added accessor-awareness from project-utils, and added accessors
+	to CATALOG.
+	[49a2f5490a71]
+
+2005-11-11  Michael Granger  <ged@FaerieMUD.org>
+
+	* convertdb.rb:
+	* Fixed the segfault during conversion. Thanks to Claus W. Spitzer
+	for finding this and sending me a patch. (Fixes #1)
+	[8b4d422180a2]
+
+	* .cvsignore, docs/.cvsignore, lib/wordnet/.cvsignore:
+	* Cleanup of old .cvsignore files.
+	[d345cefcf6bf]
+
+	* INSTALL, MANIFEST, README, lib/wordnet.rb, lib/wordnet/constants.rb,
+	lib/wordnet/lexicon.rb, tests/wntestcase.rb:
+	- Updated keywords, cleaned up for new work.
+	[6596e2fe0ed9]
+
+2003-09-03  Michael Granger  <ged@FaerieMUD.org>
+
+	* ChangeLog:
+	Initial checkin
+	[141c9f66ef28] [RELEASE_0_02]
+
+	* TODO:
+	- Fixed list for RDoc.
+	[8ccbd2b04a37]
+
+	* tests/synset.tests.rb:
+	- Fixed tests for relation pointer methods: verbgroups => verbGroups
+	and delete 'functions'.
+	[930420a13210]
+
+	* lib/wordnet/synset.rb:
+	- Corrected pointer-method docs.
+	[1be3cb9ddd7b]
+
+	* INSTALL:
+	- Updated requirements list.
+	[c71ce92dcc5b]
+
+	* tests/linguawordnet.tests.rb, tests/synset.tests.rb:
+	- Modified to reflect WordNet-2.0 changes and API changes.
+
+	- Added some more tests.
+	[08aa916e9b3b]
+
+	* lib/wordnet/synset.rb:
+	- Added new class: WordNet::Synset::Pointer which is the generic
+	type which contains a reference from one synset to another.
+
+	- Refactored all pointer-specific code into Pointer.
+
+	- Refactored some of the more complex methods into several
+	submethods.
+
+	- Removed all addFoo()/deleteFoo() methods to fit a more Ruby-ish
+	'+=' and '-=' idiom.
+
+	- Documentation additions/fixes.
+	[7c6fc7cd138f]
+
+	* lib/wordnet/lexicon.rb:
+	- [COMPAT] Simplified index entry-parsing by removing redundant
+	count.
+
+	- New method: removeSynset() -- still experimental.
+
+	- Changed internal terminology to more closely match WordNet's terms
+	to reduce future maintainer confusion.
+	[09de7e0e61d3]
+
+	* lib/wordnet/constants.rb:
+	- Rewritten to group constants into Hashes by function, with maps
+	into real constants for convenience.
+	[ef656e767d50]
+
+	* lib/wordnet/.cvsignore:
+	Initial checkin.
+	[311f84c44c99]
+
+	* lib/wordnet.rb:
+	- Updated synopsis to reflect changes to the API.
+
+	- Added optional require of CrossCase module.
+	[e8f7f7e52dc4]
+
+	* examples/holonymTree.rb, examples/meronymTree.rb:
+	- Modified to reflect changes in method names.
+	[506018768327]
+
+	* docs/.cvsignore, examples/domainTree.rb, examples/memberTree.rb:
+	Initial checkin.
+	[3de99025798f]
+
+	* docs/makedocs.rb:
+	- Added --promiscuous and --show-hash options to RDoc invocation.
+	[171ce5801d10]
+
+	* install.rb:
+	- Fixed 1.8 String =~ String warning.
+
+	- Added filter to installation file list.
+	[8a3945b31e70]
+
+	* convertdb.rb:
+	- Fixed to work with a dictdir argument.
+
+	- COMPAT: Modified to no longer store the redundant pointer count in
+	the index.
+	[74fba646ed44]
+
+	* TODO:
+	- Updated for new release.
+	[74d4cfab47b0]
+
+	* .irbrc:
+	- Fixed comment.
+	[50c74da95107]
+
+2003-08-06  Michael Granger  <ged@FaerieMUD.org>
+
+	* tests/lexicon.tests.rb, tests/linguawordnet.tests.rb,
+	tests/synset.tests.rb:
+	- Converted to use Test::Unit.
+	[27f6eee7edba]
+
+	* lib/wordnet/synset.rb:
+	- Changed to reflect changes in the API.
+	[30cc861289bc]
+
+	* lib/wordnet/lexicon.rb:
+	- Modified to use BDB transactions.
+
+	- Made changes to reflect change in constant names.
+	[8630a5108049]
+
+	* .cvsignore, MANIFEST, TODO, docs/makedocs.rb,
+	examples/clothesWithCollars.rb, lib/wordnet/constants.rb,
+	makedist.rb, tests/wntestcase.rb, utils.rb:
+	Initial checkin.
+	[3eee3038e7ee]
+
+	* lib/wordnet.rb:
+	- Moved constants into a separate module.
+	[92c4f6fcfcf9]
+
+	* examples/clothesWithTongues.rb, examples/distance.rb,
+	examples/gcs.rb, examples/holonymTree.rb, examples/hypernymTree.rb,
+	examples/hyponymTree.rb, examples/meronymTree.rb:
+	- Updated to use new API.
+	[fcd256689ff5]
+
+	* test.rb:
+	- Converted to use Test::Unit.
+	[495f85bd6fc6]
+
+	* install.rb:
+	- Modified to reflect self-build of wordnet DBs.
+	[00688051639b]
+
+	* convertdb.rb:
+	- Changed to look for WordNet-2.0 dicts by default.
+	[f35f7c66aa10]
+
+	* INSTALL, README:
+	- Updated for pending release.
+	[cf21a4aeafb4]
+
+	* .irbrc:
+	- Updated.
+	[c4559551ac8f]
+
+	* lib/WordNet.rb:
+	- Renamed to 'wordnet.rb' to follow Ruby module-naming convention.
+	[9540fade649c]
+
+	* docs/CATALOG:
+	Initial checkin.
+	[753540d47dd6]
+
+2003-06-18  Michael Granger  <ged@FaerieMUD.org>
+
+	* convertdb.rb:
+	- Fixed stupid bug caused by using the append operator (<<) instead
+	of catenation (+) to build the keys and values of the parsing
+	methods.
+
+	- Fixed several bugs of verying degrees of stupidity in the gloss-
+	parsing code.
+	[ab083281a3cf]
+
+2003-06-17  Michael Granger  <ged@FaerieMUD.org>
+
+	* convertdb.rb:
+	- Added async transactions to speed database functions.
+	[8ce63b5f2e3d]
+
+	* convertdb.rb:
+	Initial checkin.
+	[7a5597482013]
+
+2002-01-14  Michael Granger  <ged@FaerieMUD.org>
+
+	* tests/lexicon.tests.rb, tests/linguawordnet.tests.rb,
+	tests/synset.tests.rb:
+	- Converted to RubyUnit
+	[f7b39169fffb] [RELEASE_0_01]
+
+	* lib/wordnet/synset.rb:
+	- Small header/comment corrections
+
+	- Made raw pointer methods 'protected' instead of 'public'
+
+	- Added underbar-style method name aliases
+
+	- Added traversal iterator and a bunch of derived analysis methods.
+	[472a9a1cc93e]
+
+	* lib/wordnet/lexicon.rb:
+	- Small header/comment corrections
+
+	- Added optional block form to #unlock
+
+	- Changed all instances of 'pos' to 'partOfSpeech' for clarity
+
+	- Fixed misnamed-database bug in #write
+	[1fd64917b5eb]
+
+	* lib/WordNet.rb, lib/wordnet.rb:
+	- Small header/comment corrections
+	[fff3535e5441]
+
+	* test.rb:
+	- Converted to a RubyUnit test, and walkit is no longer maintained
+	or available.
+	[5745e4dbd5d9]
+
+	* install.rb:
+	- Added code to rewrite the DICTDIR in lib/WordNet.rb
+	[bbc685523bae]
+
+	* .irbrc:
+	Initial import
+	[30aeda8c2f14]
+
+	* examples/addLacedBoots.rb:
+	- Added abort code until writing is tested.
+	[fa98181aacb6]
+
+	* examples/addLacedBoots.rb, examples/clothesWithTongues.rb,
+	examples/distance.rb, examples/gcs.rb, examples/holonymTree.rb,
+	examples/hypernymTree.rb, examples/hyponymTree.rb,
+	examples/meronymTree.rb:
+	Initial import
+	[a8010db508b6]
+
+	* README:
+	- Added write-access methods warning.
+	[f6463a331f9b]
+
+	* INSTALL:
+	- Fixed up instructions.
+	[61c8ddb0352b]
+
+2002-01-07  Michael Granger  <ged@FaerieMUD.org>
+
+	* README:
+	- Modified the statement about Lingua::Wordnet to make it clear that
+	it does deviate from the module a bit more than a straight port.
+	[fa1a18997911]
+
+2002-01-05  Michael Granger  <ged@FaerieMUD.org>
+
+	* INSTALL:
+	- Fixed confusing first sentence.
+	[fc9ddae297b8]
+
+	* INSTALL:
+	- Cleaned up, untabified.
+	[1761ffe2886e]
+
+	* INSTALL:
+	Initial release.
+	[c12f16b1623b]
+
+	* README:
+	- Cleaned up and finished. Untabified.
+	[b82531e3d587]
+
+2002-01-04  unknown  <unknown>
+
+	* This commit was manufactured by cvs2svn to create branch
+	'FAERIEMUD_ORG'.
+	[f8630d969cca] [ALPHA_1_1] <FAERIEMUD_ORG>
+
+2002-01-04  Michael Granger  <ged@FaerieMUD.org>
+
+	* README, install.rb, lib/WordNet.rb, lib/wordnet.rb,
+	lib/wordnet/lexicon.rb, lib/wordnet/synset.rb, test.rb,
+	tests/lexicon.tests.rb, tests/linguawordnet.tests.rb,
+	tests/synset.tests.rb:
+	Initial revision
+	[a06265ebbad0]
+
+2002-01-04  unknown  <unknown>
+
+	* New repository initialized by cvs2svn.
+	[e19f99192552]
