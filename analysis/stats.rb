@@ -4,7 +4,7 @@ require 'json'
 require 'lingua'
 require 'csv'
 
-# get political parties
+# get political parties from csv
 parties = {}
 CSV.foreach("output/parties.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
   parties[row.fields[0]] = row.fields[1]
@@ -44,17 +44,17 @@ Dir.glob("../scraper/output/*.txt") do |filename|
   result.each { |word| word_frequency[word] += 1 }
   sorted_arr = word_frequency.sort_by {|key, value| value}.reverse
 
-  # count unique words
+  # count unique words without stopwords
   unique_words_count = result.uniq.count
 
   # count total words
-  word_count = result.count
+  word_count = speech_arr.count
 
   # count total sentences
   sentence_count = file_without_metadata.split(/\.|\?|!/).count
 
   # count syllables
-  syllable_count = result.inject(0) do |count, word|
+  syllable_count = speech_arr.inject(0) do |count, word|
     report = Lingua::EN::Readability.new(word)
     count += report.num_syllables
   end
@@ -86,7 +86,6 @@ Dir.glob("../scraper/output/*.txt") do |filename|
       total_war_count: war_count,
       date: date
     }
-
   else
     stats[president][:total_unique_words] = stats[president][:total_unique_words] += unique_words_count
     stats[president][:total_word_count] = stats[president][:total_word_count] += word_count
@@ -98,7 +97,7 @@ Dir.glob("../scraper/output/*.txt") do |filename|
   end
 end
 
-# merge parties with stats hash
+# merge party affiliation with stats hash
 stats.each do |name, hash|
   if parties[name]
     hash[:party] = parties[name]
