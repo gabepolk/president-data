@@ -2,6 +2,13 @@ require 'pry-debugger'
 require 'time'
 require 'json'
 require 'lingua'
+require 'csv'
+
+# get political parties
+parties = {}
+CSV.foreach("output/parties.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+  parties[row.fields[0]] = row.fields[1]
+end
 
 # create hash to store stats
 stats = Hash.new(0)
@@ -16,7 +23,6 @@ Dir.glob("../scraper/output/*.txt") do |filename|
   president = file[/(?<={speaker}).*(?={\/speaker})/].strip
   title = file[/(?<={title}).*(?={\/title})/].strip
   date = Time.parse(file[/(?<={date}).*(?={\/date})/].strip)
-  # transcript = [/(?<={speech}).*(?={\/speech})/].strip
 
   # remove metadata from speech
   file_without_metadata = file.gsub(/({title}).*({\/title})/, "").gsub(/({speaker}).*({\/speaker})/, "").gsub(/({date}).*({\/date})/, "").gsub(/({speech})/, "").gsub(/({\/speech})/, "")
@@ -59,13 +65,13 @@ Dir.glob("../scraper/output/*.txt") do |filename|
     match.values.first.nil? ? 0 : match.values.first
   end
 
-  # count God occurrences
+  # count "god" occurrences
   god_count = count_word("god", word_frequency)
 
-  # # count economy occurrences
+  # count "economy" occurrences
   economy_count = count_word("economy", word_frequency)
 
-  # # count economy occurrences
+  # count "war" occurrences
   war_count = count_word("war", word_frequency)
 
   # add stats to hash
@@ -80,6 +86,7 @@ Dir.glob("../scraper/output/*.txt") do |filename|
       total_war_count: war_count,
       date: date
     }
+
   else
     stats[president][:total_unique_words] = stats[president][:total_unique_words] += unique_words_count
     stats[president][:total_word_count] = stats[president][:total_word_count] += word_count
@@ -89,10 +96,16 @@ Dir.glob("../scraper/output/*.txt") do |filename|
     stats[president][:total_economy_count] = stats[president][:total_economy_count] += economy_count
     stats[president][:total_war_count] = stats[president][:total_war_count] += war_count
   end
-
 end
 
-# write output to stats.txt
-File.open("output/stats.txt", "w") do |f|
+# merge parties with stats hash
+stats.each do |name, hash|
+  if parties[name]
+    hash[:party] = parties[name]
+  end
+end
+
+# write output to stats.json
+File.open("output/stats.json", "w") do |f|
   f.write("#{stats.to_json}")
 end
