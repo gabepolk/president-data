@@ -53,6 +53,21 @@ Dir.glob("../scraper/output/*.txt") do |filename|
     count += report.num_syllables
   end
 
+  # count number of times word is spoken
+  def count_word(str, hash)
+    match = hash.select { |k,v| k.downcase == str.downcase }
+    match.values.first.nil? ? 0 : match.values.first
+  end
+
+  # count God occurrences
+  god_count = count_word("god", word_frequency)
+
+  # # count economy occurrences
+  economy_count = count_word("economy", word_frequency)
+
+  # # count economy occurrences
+  war_count = count_word("war", word_frequency)
+
   # add stats to hash
   if stats[president] == 0
     stats[president] = {
@@ -60,6 +75,9 @@ Dir.glob("../scraper/output/*.txt") do |filename|
       total_word_count: word_count,
       total_sentence_count: sentence_count,
       total_syllable_count: syllable_count,
+      total_god_count: god_count,
+      total_economy_count: economy_count,
+      total_war_count: war_count,
       date: date
     }
   else
@@ -67,6 +85,9 @@ Dir.glob("../scraper/output/*.txt") do |filename|
     stats[president][:total_word_count] = stats[president][:total_word_count] += word_count
     stats[president][:total_sentence_count] = stats[president][:total_sentence_count] += sentence_count
     stats[president][:total_syllable_count] = stats[president][:total_syllable_count] += syllable_count
+    stats[president][:total_god_count] = stats[president][:total_god_count] += god_count
+    stats[president][:total_economy_count] = stats[president][:total_economy_count] += economy_count
+    stats[president][:total_war_count] = stats[president][:total_war_count] += war_count
   end
 
 end
