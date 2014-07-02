@@ -9,6 +9,28 @@
     </head>
 
     <body>
+        <script>
+          presidentStats = [];
+
+          var rawDataParser = function(presidentsJSON) {
+            var result = [];
+            for(var president in presidentsJSON) {
+              potus = presidentsJSON[president];
+              potus.date = parseInt(potus.date.slice(0,4));
+              potus.flesch_kincaid_level = 0.39 * (potus.total_word_count/potus.total_sentence_count) + 11.8 * (potus.total_syllable_count/potus.total_word_count) - 15.59;
+              var new_obj = presidentsJSON[president];
+              new_obj.name = president;
+              result.push(new_obj);
+            }
+            return result;
+          };
+
+          $.getJSON("data/stats.json", function(presidentsJSON) {
+            presidentStats = rawDataParser(presidentsJSON);
+            flesch_kincaid(presidentStats);
+          });
+
+        </script>
 
         <script type="text/javascript" src="js/flesch_kincaid_level.js"></script>
     </body>
