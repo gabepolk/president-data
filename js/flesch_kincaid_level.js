@@ -497,19 +497,12 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-/* 
- * value accessor - returns the value to encode for a given data object.
- * scale - maps value to a visual display encoding, such as a pixel position.
- * map function - maps from data value to display value
- * axis - sets up axis
- */ 
-
 // setup x 
-var xScale = d3.scale.linear().range([0, width]), // value -> display
+var xScale = d3.scale.linear().range([0, width]).domain(xDomain), // value -> display
     xAxis = d3.svg.axis().scale(xScale).tickFormat(d3.format("d")).orient("bottom");
 
 // setup y
-var yScale = d3.scale.linear().range([height, 0]), // value -> display
+var yScale = d3.scale.linear().range([height, 0]).domain(yDomain), // value -> display
     yAxis = d3.svg.axis().scale(yScale).orient("left");
 
 // add the graph canvas to the body of the webpage
@@ -518,10 +511,6 @@ var svg = d3.select("body").append("svg")
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-xScale.domain(xDomain);
-yScale.domain(yDomain);
-
 
 //Setup the tooltips when you hover over a circle
 var tooltip = d3.select("body").append("div")
@@ -551,10 +540,6 @@ svg.append("g")
   .attr("x", -height/2+margin.bottom)
   .style("text-anchor", "end")
   .text("Flesch Kincaid Reading Level");
-
-
-
-
 
 // d3.json(presidentJSON, function(error, prezData) {
 
