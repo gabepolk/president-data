@@ -563,19 +563,19 @@ svg.append("g")
           return "green";
       })
       .style("opacity", 0.5)
-      .on("mouseover", function(d) {
-        tooltip.transition()        
-          .duration(200)
-          .style("opacity", 0.9);      
-        tooltip.html("President " + d.name + "<br/>" + "Grade Level: " + Math.round(d.flesch_kincaid_level) + "<br/>" + "Party: "+ d.party)  
-          .style("left", (parseInt(d3.select(this).attr("cx"))+ 5) + "px")
-          .style("top", (parseInt(d3.select(this).attr("cy"))- 28) + "px"); 
-      })
-      .on("mouseout", function(d) {
-        tooltip.transition()        
-          .duration(200)      
-          .style("opacity", 0);
-      });
+    .on("mouseover", function(d) {
+      tooltip.transition()        
+        .duration(200)
+        .style("opacity", 0.9);      
+      tooltip.html("President " + d.name + "<br/>" + "Approx Date Presidency: " + d.date + "<br/>" +"Grade Level: " + Math.round(d.flesch_kincaid_level) + "<br/>" + "Party: "+ d.party)  
+        .style("left", (parseInt(d3.select(this).attr("cx"))+ 5) + "px")
+        .style("top", (parseInt(d3.select(this).attr("cy"))- 28) + "px"); 
+    })
+    .on("mouseout", function(d) {
+      tooltip.transition()        
+        .duration(200)      
+        .style("opacity", 0);
+    });
 
 
 
