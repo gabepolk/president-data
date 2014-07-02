@@ -1,0 +1,27 @@
+<body>
+
+  <div class="small-3 small-centered columns">
+    <div class="row">
+      <h3>Start playing!</h3>
+    </div>
+    <form method="post" action="/">
+      <div class="row">
+        <input type="text" placeholder="Username" id="user_name" name="user_name" />
+      </div>
+      <div class="row">
+        <input type="text" placeholder="Password" id="password" name="password" />
+      </div>
+      <div class="row">
+        <input class="button" type="submit" value="Login">
+      </div>
+      <div class="row">
+        Not registered? <a href="/register">Sign up</a>
+        <br>
+        <%if !@error.nil? %>
+          <p><%= @error %></p>
+        <% end %>
+      </div>
+    </form>
+  </div>
+
+</body>
