@@ -1,0 +1,68 @@
+{
+    "Abraham Lincoln": {
+        "total_unique_words": 14365,
+        "total_word_count": 105160,
+        "total_sentence_count": 4385,
+        "total_syllable_count": 162685,
+        "total_god_count": 31,
+        "total_economy_count": 2,
+        "total_war_count": 103,
+        "date": "1852-07-06 00:00:00 -0800",
+        "party": "Union"
+    },
+    "Andrew Jackson": {
+        "total_unique_words": 19011,
+        "total_word_count": 104837,
+        "total_sentence_count": 2633,
+        "total_syllable_count": 170612,
+        "total_god_count": 5,
+        "total_economy_count": 20,
+        "total_war_count": 47,
+        "date": "1829-03-04 00:00:00 -0800",
+        "party": "Democratic"
+    },
+    "Andrew Johnson": {
+        "total_unique_words": 1862,
+        "total_word_count": 9220,
+        "total_sentence_count": 278,
+        "total_syllable_count": 14847,
+        "total_god_count": 1,
+        "total_economy_count": 3,
+        "total_war_count": 14,
+        "date": "1865-12-04 00:00:00 -0800",
+        "party": "Union"
+    },
+    "Barack Obama": {
+        "total_unique_words": 7405,
+        "total_word_count": 33667,
+        "total_sentence_count": 1753,
+        "total_syllable_count": 50264,
+        "total_god_count": 17,
+        "total_economy_count": 54,
+        "total_war_count": 17,
+        "date": "2008-08-28 00:00:00 -0700",
+        "party": "Democratic"
+    },
+    "Benjamin Harrison": {
+        "total_unique_words": 10949,
+        "total_word_count": 58875,
+        "total_sentence_count": 1963,
+        "total_syllable_count": 94724,
+        "total_god_count": 1,
+        "total_economy_count": 6,
+        "total_war_count": 21,
+        "date": "1889-03-04 00:00:00 -0800",
+        "party": "Republican"
+    },
+    "Bill Clinton": {
+        "total_unique_words": 30616,
+        "total_word_count": 151861,
+        "total_sentence_count": 8097,
+        "total_syllable_count": 224054,
+        "total_god_count": 55,
+        "total_economy_count": 127,
+        "total_war_count": 100,
+        "date": "1993-01-20 00:00:00 -0800",
+        "party": "Democratic"
+    }
+}
