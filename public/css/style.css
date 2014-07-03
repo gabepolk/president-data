@@ -9,7 +9,6 @@ body {
     shape-rendering: crispEdges;
 }
 
-
 .axis text {
     font-family: sans-serif;
     font-size: 11px;
@@ -24,4 +23,24 @@ body {
   width: 250px;
   height: 28px;
   pointer-events: none;
+}
+
+svg .democrat, .republican, .no-party {
+  stroke-width: 4;
+  fill-opacity: .5;
+}
+
+svg .democrat {
+  fill: blue;
+  stroke: blue;
+}
+
+svg .republican {
+  fill: red;
+  stroke: red;
+}
+
+svg .no-party {
+  fill: green;
+  stroke: green;
 }
