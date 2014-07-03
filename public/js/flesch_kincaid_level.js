@@ -16,6 +16,7 @@ function flesch_kincaid(presidentStats) {
 
   // add the graph canvas to the body of the webpage
   var svg = d3.select("body").append("svg")
+      .attr("class", "fk")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -23,7 +24,7 @@ function flesch_kincaid(presidentStats) {
 
   //Setup the tooltips when you hover over a circle
   var tooltip = d3.select("body").append("div")
-      .attr("class", "tooltip")
+      .attr("class", "tooltip fk")
       .style("opacity", 0);
 
   // x-axis
@@ -50,7 +51,7 @@ function flesch_kincaid(presidentStats) {
     .style("text-anchor", "end")
     .text("Flesch Kincaid Reading Level");
 
-  svg.selectAll(".circle")
+  svg.selectAll("circle")
     .data(presidentStats)
   .enter()
     .append("circle")
@@ -69,22 +70,9 @@ function flesch_kincaid(presidentStats) {
       else
         return "green";
     })
-    .style("opacity", 0.5)
-    .on("mouseover", function(d) {
-      tooltip.transition()        
-        .duration(200)
-        .style("opacity", 0.9);      
-      tooltip.html("President " + d.name + "<br/>" + "Approx date of Presidency: " + d.date + "<br/>" +"Grade Level: " + Math.round(d.flesch_kincaid_level) + "<br/>" + "Party: "+ d.party)  
-        .style("left", (parseInt(d3.select(this).attr("cx"))+ 5) + "px")
-        .style("top", (parseInt(d3.select(this).attr("cy")) - 32) + "px"); 
-      })
-    .on("mouseout", function(d) {
-      tooltip.transition()        
-        .duration(200)      
-        .style("opacity", 0);
-    });
+    .style("opacity", 0.5);
 
-  var circles = d3.selectAll("circle");
+  var circles = d3.selectAll(".fk circle");
 
     circles.data(presidentStats)
       .transition()
@@ -99,6 +87,19 @@ function flesch_kincaid(presidentStats) {
       });
 
 
-
+  svg.selectAll("circle")
+    .on("mouseover", function(d) {
+      tooltip.transition()        
+        .duration(200)
+        .style("opacity", 0.9);      
+      tooltip.html("President " + d.name + "<br/>" + "Approx date of Presidency: " + d.date + "<br/>" +"Grade Level: " + Math.round(d.flesch_kincaid_level) + "<br/>" + "Party: "+ d.party)  
+        .style("left", (parseInt(d3.select(this).attr("cx"))+ 5) + "px")
+        .style("top", (parseInt(d3.select(this).attr("cy")) - 32) + "px"); 
+      })
+    .on("mouseout", function(d) {
+      tooltip.transition()        
+        .duration(200)      
+        .style("opacity", 0);
+    });
 
 }

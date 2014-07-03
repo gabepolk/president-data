@@ -611,19 +611,19 @@
     buildScatterplot(godArr);
 
     $("#god").click(function(){
-      $("svg").empty();
+      $("#word-count").empty();
       buildScatterplot(godArr);
     });
 
     $("#economy").click(function(){
-      $("svg").empty();
+      $("#word-count").empty();
       buildScatterplot(economyArr);
     });
 
     $("#war").click(function(){
-      $("svg").empty();
+      $("#word-count").empty();
       buildScatterplot(warArr);
     });
   });
 
-})()
+})();
