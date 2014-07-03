@@ -485,11 +485,6 @@
       if (potus.date.length > 4) {
         potus.date = parseInt(potus.date.slice(0,4));
       }
-
-      // // find sum of array
-      // result.push(potus.total_word_count);
-      // var sum = result.reduce(function(pv, cv) { return pv + cv; }, 0);
-
       result.push(
         new Array (
           potus.date,
@@ -616,20 +611,19 @@
     buildScatterplot(godArr);
 
     $("#god").click(function(){
+      $("svg").empty();
       buildScatterplot(godArr);
     });
 
     $("#economy").click(function(){
+      $("svg").empty();
       buildScatterplot(economyArr);
     });
 
     $("#war").click(function(){
+      $("svg").empty();
       buildScatterplot(warArr);
     });
-
-    // buildScatterplot(economyArr);
-    // buildScatterplot(warArr);
-    // $("div").hide();
   });
 
 })()
